@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avtoprokat.uz — Toshkentda avtomobil ijarasi</title>
+<meta name="description" content="Toshkentda arzon va qulay avtomobil ijarasi. Mersedes, Malibu, Tracker va boshqa mashinalar. +998 97 430 07 00">
+<meta name="keywords" content="avtomobil ijarasi toshkent, прокат авто ташкент, car rental tashkent, avtoprokat">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112240;
+    --gold: #F5C842;
+    --gold-light: #FFD966;
+    --white: #FFFFFF;
+    --grey-bg: #F7F8FA;
+    --grey-line: #E8EAF0;
+    --text-dark: #0A1628;
+    --text-mid: #4A5568;
+    --text-light: #8A94A6;
+    --radius: 16px;
+    --shadow: 0 4px 32px rgba(10,22,40,0.10);
+    --shadow-card: 0 2px 16px rgba(10,22,40,0.08);
+    --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4 {
+    font-family: 'Syne', sans-serif;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,22,40,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(245,200,66,0.15);
+    transition: var(--transition);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 20px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-mark svg { width: 28px; height: 28px; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .logo-name span { color: var(--gold); }
+
+  .logo-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  nav { display: flex; align-items: center; gap: 8px; }
+
+  nav a {
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  nav a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+  .header-right { display: flex; align-items: center; gap: 12px; }
+
+  .lang-switcher {
+    display: flex;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .btn-call {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-call:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--white);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 68px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 60%, rgba(245,200,66,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(245,200,66,0.05) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    min-height: calc(100vh - 68px);
+    padding: 60px 0;
+  }
+
+  .hero-content { position: relative; z-index: 2; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,200,66,0.12);
+    border: 1px solid rgba(245,200,66,0.3);
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.05;
+  }
+
+  .hero-title .accent { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+    max-width: 440px;
+    line-height: 1.65;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,0.3); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 13px 28px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+  }
+
+  .stat { }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--gold); }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-car-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .hero-car-img {
+    width: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+    height: 380px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-car-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+  }
+
+  .hero-car-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-car-badge .price {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-car-badge .price-label {
+    font-size: 11px;
+    opacity: 0.7;
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 80px 0; }
+
+  .section-header { text-align: center; margin-bottom: 52px; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,200,66,0.1);
+    border: 1px solid rgba(245,200,66,0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ─── CARS SECTION ─── */
+  #cars { background: var(--grey-bg); }
+
+  .cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .car-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border: 1px solid var(--grey-line);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .car-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(10,22,40,0.15);
+    border-color: var(--gold);
+  }
+
+  .car-img-wrap {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #f0f2f5 0%, #e8eaf0 100%);
+    overflow: hidden;
+  }
+
+  .car-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .car-card:hover .car-img-wrap img { transform: scale(1.05); }
+
+  .car-type-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  .car-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .car-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .car-model {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+
+  .car-specs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .spec {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+
+  .spec svg { width: 14px; height: 14px; color: var(--text-light); flex-shrink: 0; }
+
+  .car-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--grey-line);
+    margin-top: auto;
+  }
+
+  .car-price { }
+
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .price-period {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 2px;
+  }
+
+  .btn-book-card {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-book-card:hover { background: var(--gold); color: var(--navy); }
+
+  /* ─── WHY US ─── */
+  #why { background: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .why-card {
+    padding: 28px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--grey-line);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+  }
+
+  .why-card:hover::before { transform: scaleX(1); }
+  .why-card:hover { border-color: var(--gold); box-shadow: var(--shadow-card); transform: translateY(-4px); }
+
+  .why-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(245,200,66,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .why-icon svg { width: 26px; height: 26px; color: var(--gold); }
+
+  .why-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .why-desc { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+
+  /* ─── HOW IT WORKS ─── */
+  #how { background: var(--navy); }
+
+  #how .section-title { color: var(--white); }
+  #how .section-sub { color: rgba(255,255,255,0.55); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: calc(16.66% + 16px);
+    right: calc(16.66% + 16px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), rgba(245,200,66,0.2), var(--gold));
+    opacity: 0.3;
+  }
+
+  .step {
+    text-align: center;
+    padding: 36px 24px;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: var(--transition);
+  }
+
+  .step:hover {
+    background: rgba(245,200,66,0.06);
+    border-color: rgba(245,200,66,0.2);
+    transform: translateY(-4px);
+  }
+
+  .step-num {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .step-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+  /* ─── BOOKING ─── */
+  #booking { background: var(--grey-bg); }
+
+  .booking-wrap {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .booking-info { }
+
+  .booking-info .section-header { text-align: left; margin-bottom: 32px; }
+
+  .booking-highlights { display: flex; flex-direction: column; gap: 16px; }
+
+  .bh-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+
+  .bh-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .booking-form {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--grey-line);
+  }
+
+  .form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mid);
+    margin-bottom: 7px;
+    letter-spacing: 0.01em;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--grey-line);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: var(--transition);
+    outline: none;
+    appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(245,200,66,0.12);
+  }
+
+  .form-textarea { resize: vertical; min-height: 90px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 12px;
+  }
+
+  .btn-submit:hover { background: var(--gold); color: var(--navy); }
+
+  .form-alt-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .btn-wa, .btn-tg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn-wa { background: #25D366; color: white; }
+  .btn-wa:hover { background: #1fb855; transform: translateY(-1px); }
+
+  .btn-tg { background: #2AABEE; color: white; }
+  .btn-tg:hover { background: #1e8fcf; transform: translateY(-1px); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
+
+  .contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1.5px solid var(--grey-line);
+    transition: var(--transition);
+  }
+
+  .contact-card:hover { border-color: var(--gold); background: rgba(245,200,66,0.03); }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(245,200,66,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 20px; height: 20px; color: var(--gold); }
+
+  .contact-card-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .contact-card-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .contact-card-value a { color: var(--navy); }
+  .contact-card-value a:hover { color: var(--gold); }
+
+  .map-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 360px;
+    border: 1.5px solid var(--grey-line);
+  }
+
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* ─── CTA SECTION ─── */
+  #cta {
+    background: var(--gold);
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  #cta .section-title { color: var(--navy); margin-bottom: 16px; }
+
+  #cta .section-sub { color: rgba(10,22,40,0.65); margin-bottom: 36px; }
+
+  #cta .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 18px;
+    padding: 16px 36px;
+  }
+
+  #cta .btn-primary:hover { background: rgba(10,22,40,0.85); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  footer a { color: var(--gold); }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: var(--navy);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 999;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: var(--transition);
+  }
+
+  .mobile-nav a:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow);
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+    border-left: 4px solid var(--gold);
+    white-space: nowrap;
+  }
+
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .menu-toggle { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: 40px 0; }
+    .hero-visual { display: none; }
+    .booking-wrap { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+    .btn-call .call-text { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats { gap: 20px; }
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .booking-form { padding: 24px; }
+    section { padding: 60px 0; }
+    .why-grid { grid-template-columns: 1fr; }
+    .form-alt-btns { grid-template-columns: 1fr; }
+  }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-1 { transition-delay: 0.05s; }
+  .stagger-2 { transition-delay: 0.1s; }
+  .stagger-3 { transition-delay: 0.15s; }
+  .stagger-4 { transition-delay: 0.2s; }
+  .stagger-5 { transition-delay: 0.25s; }
+  .stagger-6 { transition-delay: 0.3s; }
+
+  /* Arrow on select */
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="#hero" class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="14" width="24" height="5" rx="2.5" fill="#0A1628"/>
+            <path d="M4 14 L7 8 L21 8 L24 14" stroke="#0A1628" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            <circle cx="8" cy="20" r="2.5" fill="#0A1628"/>
+            <circle cx="20" cy="20" r="2.5" fill="#0A1628"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Avto<span>Prokat</span>.uz</span>
+          <span class="logo-sub">Toshkent</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#cars" data-i18n="nav_cars">Avtomobillar</a>
+        <a href="#how" data-i18n="nav_how">Qanday ishlaydi</a>
+        <a href="#booking" data-i18n="nav_book">Bron</a>
+        <a href="#contact" data-i18n="nav_contact">Aloqa</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="uz">UZ</button>
+          <button class="lang-btn" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a href="tel:+998974300700" class="btn-call">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3.09a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span class="call-text">+998 97 430 07 00</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#cars" data-i18n="nav_cars" onclick="closeMobileNav()">Avtomobillar</a>
+  <a href="#how" data-i18n="nav_how" onclick="closeMobileNav()">Qanday ishlaydi</a>
+  <a href="#booking" data-i18n="nav_book" onclick="closeMobileNav()">Bron</a>
+  <a href="#contact" data-i18n="nav_contact" onclick="closeMobileNav()">Aloqa</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero_badge">Toshkentda №1 avtoprokat</div>
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Toshkentda</span><br>
+          <span class="accent" data-i18n="hero_title_2">Avtomobil</span><br>
+          <span data-i18n="hero_title_3">Ijarasi</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_sub">Qulay narxlar, toza avtomobillar va tez bron. Har kuni 09:00 dan 22:00 gacha xizmatdamiz.</p>
+        <div class="hero-ctas">
+          <a href="#cars" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h3l3 4v4h-6V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span data-i18n="cta_cars">Avtomobillarni ko'rish</span>
+          </a>
+          <a href="#booking" class="btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span data-i18n="cta_book">Hozir Bron Qilish</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">50<span>+</span></div>
+            <div class="stat-label" data-i18n="stat_cars">Avtomobil</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5<span>★</span></div>
+            <div class="stat-label" data-i18n="stat_rating">Reyting</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">24<span>/7</span></div>
+            <div class="stat-label" data-i18n="stat_support">Qo'llab-quvvat</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-car-wrap">
+          <div class="hero-car-img">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&q=85&auto=format&fit=crop" alt="Mercedes-Benz" loading="eager">
+          </div>
+          <div class="hero-car-badge">
+            <span class="price">150 000 <span style="font-size:14px">so'm</span></span>
+            <span class="price-label" data-i18n="per_day">kuniga</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CARS ─── -->
+<section id="cars">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="cars_tag">Avtomobillar parki</div>
+      <h2 class="section-title" data-i18n="cars_title">Mavjud avtomobillar</h2>
+      <p class="section-sub" data-i18n="cars_sub">Sizning sayohatingiz uchun eng qulay avtomobilni tanlang</p>
+    </div>
+
+    <div class="cars-grid" id="carsGrid">
+      <!-- Cars injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section id="why">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="why_tag">Bizni tanlang</div>
+      <h2 class="section-title" data-i18n="why_title">Nima uchun biz?</h2>
+      <p class="section-sub" data-i18n="why_sub">Mijozlarimizning ishonchini qozonganmiz</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up stagger-1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="why-title" data-i18n="w1_title">Arzon narxlar</div>
+        <p class="why-desc" data-i18n="w1_desc">Bozordagi eng raqobatbardosh narxlar. Yashirin to'lovlar yo'q.</p>
+      </div>
+      <div class="why-card fade-up stagger-2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h3l3 4v4h-6V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="why-title" data-i18n="w2_title">Keng tanlov</div>
+        <p class="why-desc" data-i18n="w2_desc">50+ avtomobil: ekonomdan premium sinf avtoylargacha.</p>
+      </div>
+      <div class="why-card fade-up stagger-3">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="why-title" data-i18n="w3_title">Tez bron</div>
+        <p class="why-desc" data-i18n="w3_desc">Ariza topshirishdan 30 daqiqa ichida tasdiqlash.</p>
+      </div>
+      <div class="why-card fade-up stagger-4">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="why-title" data-i18n="w4_title">Ishonchli xizmat</div>
+        <p class="why-desc" data-i18n="w4_desc">Barcha avtomobillar texnik ko'rikdan o'tgan va sug'urta qilingan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section id="how">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="how_tag">Jarayon</div>
+      <h2 class="section-title" data-i18n="how_title">Qanday ishlaydi?</h2>
+      <p class="section-sub" data-i18n="how_sub">Atigi 3 qadam — va avtomobil sizniki</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up stagger-1">
+        <div class="step-num">1</div>
+        <div class="step-title" data-i18n="step1_title">Avtomobil tanlang</div>
+        <p class="step-desc" data-i18n="step1_desc">Bizning keng parkimizdan sizga mos avtomobilni tanlang.</p>
+      </div>
+      <div class="step fade-up stagger-2">
+        <div class="step-num">2</div>
+        <div class="step-title" data-i18n="step2_title">Formani to'ldiring</div>
+        <p class="step-desc" data-i18n="step2_desc">Ism-familiyangiz, telefon raqamingiz va sanalarni kiriting.</p>
+      </div>
+      <div class="step fade-up stagger-3">
+        <div class="step-num">3</div>
+        <div class="step-title" data-i18n="step3_title">Tasdiqlash oling</div>
+        <p class="step-desc" data-i18n="step3_desc">Operatorimiz siz bilan bog'lanib, bronni tasdiqlaydi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING ─── -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div class="booking-info">
+        <div class="section-header">
+          <div class="section-tag" data-i18n="book_tag">Bron</div>
+          <h2 class="section-title" data-i18n="book_title">Avtomobil Bron Qilish</h2>
+          <p class="section-sub" data-i18n="book_sub">Formani to'ldiring, operatorimiz siz bilan tez orada bog'lanadi</p>
+        </div>
+        <div class="booking-highlights">
+          <div class="bh-item"><div class="bh-dot"></div><span data-i18n="bh1">Bepul va tez bron</span></div>
+          <div class="bh-item"><div class="bh-dot"></div><span data-i18n="bh2">Oldindan to'lov talab qilinmaydi</span></div>
+          <div class="bh-item"><div class="bh-dot"></div><span data-i18n="bh3">Istalgan paytda bekor qilish mumkin</span></div>
+          <div class="bh-item"><div class="bh-dot"></div><span data-i18n="bh4">30 daqiqada tasdiqlash</span></div>
+          <div class="bh-item"><div class="bh-dot"></div><span data-i18n="bh5">Yetkazib berish xizmati mavjud</span></div>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div class="form-title" data-i18n="form_title">📋 Ariza yuborish</div>
+        <form id="bookingForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_name">Ism-Familiya *</label>
+            <input type="text" class="form-input" id="fname" required placeholder="Abdullayev Jasur">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_phone">Telefon raqami *</label>
+            <input type="tel" class="form-input" id="fphone" required placeholder="+998 90 123 45 67">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_car">Avtomobil tanlang *</label>
+            <div class="select-wrap">
+              <select class="form-select" id="fcar" required>
+                <option value="" data-i18n="form_car_ph">— Avtomobil tanlang —</option>
+                <option>Chevrolet Malibu — 150 000 so'm/kun</option>
+                <option>Chevrolet Tracker — 200 000 so'm/kun</option>
+                <option>Mercedes-Benz E-Class — 400 000 so'm/kun</option>
+                <option>BMW 5 Series — 450 000 so'm/kun</option>
+                <option>Hyundai Tucson — 230 000 so'm/kun</option>
+                <option>Toyota Camry — 280 000 so'm/kun</option>
+                <option>Chevrolet Equinox — 250 000 so'm/kun</option>
+                <option>Kia Sportage — 220 000 so'm/kun</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_from">Boshlanish sanasi *</label>
+              <input type="date" class="form-input" id="ffrom" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_to">Tugash sanasi *</label>
+              <input type="date" class="form-input" id="fto" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_msg">Izoh (ixtiyoriy)</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Qo'shimcha ma'lumot..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-i18n="btn_submit">Ariza Yuborish</button>
+          <div class="form-alt-btns">
+            <a href="#" class="btn-wa" id="waBtn" onclick="bookViaWA(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href="#" class="btn-tg" id="tgBtn" onclick="bookViaTG(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67 4.2 12.77c-.658-.204-.67-.658.136-.975l10.98-4.23c.548-.196 1.027.13.578.656z"/></svg>
+              Telegram
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" data-i18n="contact_tag">Aloqa</div>
+      <h2 class="section-title" data-i18n="contact_title">Biz bilan bog'laning</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3.09a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title" data-i18n="contact_phone_label">Telefon</div>
+              <div class="contact-card-value"><a href="tel:+998974300700">+998 97 430 07 00</a></div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title" data-i18n="contact_addr_label">Manzil</div>
+              <div class="contact-card-value" data-i18n="contact_addr">Toshkent, Yakkasaroy tumani, Qushbegi mahallasi</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-title" data-i18n="contact_hours_label">Ish vaqti</div>
+              <div class="contact-card-value" data-i18n="contact_hours">Har kuni: 09:00 – 22:00</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; margin-top:8px;">
+          <a href="https://wa.me/998974300700" target="_blank" class="btn-wa" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; padding:14px; border-radius:12px; font-weight:600; font-size:15px; text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://t.me/avtoprokatuz" target="_blank" class="btn-tg" style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; padding:14px; border-radius:12px; font-weight:600; font-size:15px; text-decoration:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.67 4.2 12.77c-.658-.204-.67-.658.136-.975l10.98-4.23c.548-.196 1.027.13.578.656z"/></svg>
+            Telegram
+          </a>
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11987.123456789!2d69.2832!3d41.2995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9c3%3A0xa5a9323b4aa5cb98!2sYakkasaroy%20District%2C%20Tashkent!5e0!3m2!1sen!2suz!4v1718000000000!5m2!1sen!2suz"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Avtoprokat.uz location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="cta">
+  <div class="container">
+    <div class="section-tag" style="background:rgba(10,22,40,0.1); border-color:rgba(10,22,40,0.2); color:var(--navy); margin-bottom:16px;" data-i18n="cta_tag">Bugun boshlang</div>
+    <h2 class="section-title" data-i18n="cta_title">Bugun Avtomobilingizni Bron Qiling!</h2>
+    <p class="section-sub" data-i18n="cta_sub">Minglab mijozlarimiz bizga ishonadi. Siz ham birlashing.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
+      <a href="#booking" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span data-i18n="cta_book_btn">Hozir Bron Qilish</span>
+      </a>
+      <a href="tel:+998974300700" class="btn-primary" style="background:var(--navy); color:white;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.77a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3.09a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +998 97 430 07 00
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <p>&copy; 2024 <a href="#">Avtoprokat.uz</a> — Toshkent, Yakkasaroy tumani. Barcha huquqlar himoyalangan.</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── DATA ───
+const cars = [
+  {
+    name: "Chevrolet Malibu",
+    year: "2022",
+    type: "Sedan",
+    price: "150 000",
+    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Chevrolet Tracker",
+    year: "2023",
+    type: "SUV",
+    price: "200 000",
+    img: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Mercedes E-Class",
+    year: "2021",
+    type: "Premium",
+    price: "400 000",
+    img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "BMW 5 Series",
+    year: "2022",
+    type: "Premium",
+    price: "450 000",
+    img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Hyundai Tucson",
+    year: "2023",
+    type: "SUV",
+    price: "230 000",
+    img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Toyota Camry",
+    year: "2022",
+    type: "Sedan",
+    price: "280 000",
+    img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Chevrolet Equinox",
+    year: "2023",
+    type: "SUV",
+    price: "250 000",
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  },
+  {
+    name: "Kia Sportage",
+    year: "2023",
+    type: "SUV",
+    price: "220 000",
+    img: "https://images.unsplash.com/photo-1617814065893-00757125efab?w=600&q=80&auto=format&fit=crop",
+    seats: 5, trans: "Avtomat", fuel: "Benzin"
+  }
+];
+
+// ─── I18N ───
+const i18n = {
+  uz: {
+    nav_cars: "Avtomobillar", nav_how: "Qanday ishlaydi", nav_book: "Bron", nav_contact: "Aloqa",
+    hero_badge: "Toshkentda №1 avtoprokat",
+    hero_title_1: "Toshkentda", hero_title_2: "Avtomobil", hero_title_3: "Ijarasi",
+    hero_sub: "Qulay narxlar, toza avtomobillar va tez bron. Har kuni 09:00 dan 22:00 gacha xizmatdamiz.",
+    cta_cars: "Avtomobillarni ko'rish", cta_book: "Hozir Bron Qilish",
+    stat_cars: "Avtomobil", stat_rating: "Reyting", stat_support: "Qo'llab-quvvat",
+    per_day: "kuniga",
+    cars_tag: "Avtomobillar parki", cars_title: "Mavjud avtomobillar", cars_sub: "Sizning sayohatingiz uchun eng qulay avtomobilni tanlang",
+    book_btn: "Bron Qilish",
+    why_tag: "Bizni tanlang", why_title: "Nima uchun biz?", why_sub: "Mijozlarimizning ishonchini qozonganmiz",
+    w1_title: "Arzon narxlar", w1_desc: "Bozordagi eng raqobatbardosh narxlar. Yashirin to'lovlar yo'q.",
+    w2_title: "Keng tanlov", w2_desc: "50+ avtomobil: ekonomdan premium sinf avtoylargacha.",
+    w3_title: "Tez bron", w3_desc: "Ariza topshirishdan 30 daqiqa ichida tasdiqlash.",
+    w4_title: "Ishonchli xizmat", w4_desc: "Barcha avtomobillar texnik ko'rikdan o'tgan va sug'urta qilingan.",
+    how_tag: "Jarayon", how_title: "Qanday ishlaydi?", how_sub: "Atigi 3 qadam — va avtomobil sizniki",
+    step1_title: "Avtomobil tanlang", step1_desc: "Bizning keng parkimizdan sizga mos avtomobilni tanlang.",
+    step2_title: "Formani to'ldiring", step2_desc: "Ism-familiyangiz, telefon raqamingiz va sanalarni kiriting.",
+    step3_title: "Tasdiqlash oling", step3_desc: "Operatorimiz siz bilan bog'lanib, bronni tasdiqlaydi.",
+    book_tag: "Bron", book_title: "Avtomobil Bron Qilish", book_sub: "Formani to'ldiring, operatorimiz siz bilan tez orada bog'lanadi",
+    bh1: "Bepul va tez bron", bh2: "Oldindan to'lov talab qilinmaydi", bh3: "Istalgan paytda bekor qilish mumkin", bh4: "30 daqiqada tasdiqlash", bh5: "Yetkazib berish xizmati mavjud",
+    form_title: "📋 Ariza yuborish",
+    form_name: "Ism-Familiya *", form_phone: "Telefon raqami *", form_car: "Avtomobil tanlang *",
+    form_car_ph: "— Avtomobil tanlang —", form_from: "Boshlanish sanasi *", form_to: "Tugash sanasi *", form_msg: "Izoh (ixtiyoriy)",
+    btn_submit: "Ariza Yuborish",
+    contact_tag: "Aloqa", contact_title: "Biz bilan bog'laning",
+    contact_phone_label: "Telefon", contact_addr_label: "Manzil",
+    contact_addr: "Toshkent, Yakkasaroy tumani, Qushbegi mahallasi",
+    contact_hours_label: "Ish vaqti", contact_hours: "Har kuni: 09:00 – 22:00",
+    cta_tag: "Bugun boshlang", cta_title: "Bugun Avtomobilingizni Bron Qiling!", cta_sub: "Minglab mijozlarimiz bizga ishonadi. Siz ham birlashing.",
+    cta_book_btn: "Hozir Bron Qilish",
+    toast_ok: "✅ Arizangiz qabul qilindi! Tez orada bog'lanamiz.",
+    per_day_label: "so'm/kun"
+  },
+  ru: {
+    nav_cars: "Автомобили", nav_how: "Как работает", nav_book: "Бронь", nav_contact: "Контакты",
+    hero_badge: "Прокат авто №1 в Ташкенте",
+    hero_title_1: "В Ташкенте", hero_title_2: "Аренда", hero_title_3: "Автомобилей",
+    hero_sub: "Доступные цены, чистые авто и быстрое бронирование. Работаем каждый день с 09:00 до 22:00.",
+    cta_cars: "Смотреть автомобили", cta_book: "Забронировать сейчас",
+    stat_cars: "Автомобилей", stat_rating: "Рейтинг", stat_support: "Поддержка",
+    per_day: "в день",
+    cars_tag: "Автопарк", cars_title: "Доступные автомобили", cars_sub: "Выберите подходящий автомобиль для вашей поездки",
+    book_btn: "Забронировать",
+    why_tag: "Выбирайте нас", why_title: "Почему мы?", why_sub: "Мы завоевали доверие наших клиентов",
+    w1_title: "Доступные цены", w1_desc: "Самые конкурентные цены на рынке. Никаких скрытых платежей.",
+    w2_title: "Большой выбор", w2_desc: "50+ автомобилей: от эконома до премиум класса.",
+    w3_title: "Быстрое бронирование", w3_desc: "Подтверждение в течение 30 минут после заявки.",
+    w4_title: "Надёжный сервис", w4_desc: "Все автомобили прошли техосмотр и застрахованы.",
+    how_tag: "Процесс", how_title: "Как это работает?", how_sub: "Всего 3 шага — и автомобиль ваш",
+    step1_title: "Выберите авто", step1_desc: "Выберите подходящий автомобиль из нашего большого парка.",
+    step2_title: "Заполните форму", step2_desc: "Введите ФИО, номер телефона и даты аренды.",
+    step3_title: "Получите подтверждение", step3_desc: "Наш оператор свяжется с вами и подтвердит бронь.",
+    book_tag: "Бронирование", book_title: "Забронировать Автомобиль", book_sub: "Заполните форму, наш оператор свяжется с вами в ближайшее время",
+    bh1: "Бесплатное и быстрое бронирование", bh2: "Предоплата не требуется", bh3: "Отмена в любое время", bh4: "Подтверждение за 30 минут", bh5: "Услуга доставки доступна",
+    form_title: "📋 Отправить заявку",
+    form_name: "ФИО *", form_phone: "Номер телефона *", form_car: "Выберите автомобиль *",
+    form_car_ph: "— Выберите автомобиль —", form_from: "Дата начала *", form_to: "Дата окончания *", form_msg: "Комментарий (необязательно)",
+    btn_submit: "Отправить заявку",
+    contact_tag: "Контакты", contact_title: "Свяжитесь с нами",
+    contact_phone_label: "Телефон", contact_addr_label: "Адрес",
+    contact_addr: "Ташкент, Яккасарайский район, махалля Кушбеги",
+    contact_hours_label: "Режим работы", contact_hours: "Ежедневно: 09:00 – 22:00",
+    cta_tag: "Начните сегодня", cta_title: "Забронируйте Авто Сегодня!", cta_sub: "Тысячи клиентов доверяют нам. Присоединяйтесь.",
+    cta_book_btn: "Забронировать сейчас",
+    toast_ok: "✅ Ваша заявка принята! Мы скоро с вами свяжемся.",
+    per_day_label: "сум/день"
+  },
+  en: {
+    nav_cars: "Cars", nav_how: "How it works", nav_book: "Book", nav_contact: "Contact",
+    hero_badge: "#1 Car Rental in Tashkent",
+    hero_title_1: "Car Rental", hero_title_2: "in Tashkent", hero_title_3: "Uzbekistan",
+    hero_sub: "Affordable prices, clean cars, and fast booking. Available every day from 09:00 to 22:00.",
+    cta_cars: "Browse Cars", cta_book: "Book Now",
+    stat_cars: "Cars", stat_rating: "Rating", stat_support: "Support",
+    per_day: "per day",
+    cars_tag: "Fleet", cars_title: "Available Cars", cars_sub: "Choose the perfect car for your journey",
+    book_btn: "Book Now",
+    why_tag: "Choose us", why_title: "Why choose us?", why_sub: "We've earned the trust of thousands of customers",
+    w1_title: "Affordable prices", w1_desc: "Most competitive prices on the market. No hidden fees.",
+    w2_title: "Wide selection", w2_desc: "50+ cars: from economy to premium class.",
+    w3_title: "Fast booking", w3_desc: "Confirmation within 30 minutes of submitting your request.",
+    w4_title: "Reliable service", w4_desc: "All cars are inspected and insured.",
+    how_tag: "Process", how_title: "How does it work?", how_sub: "Just 3 steps — and the car is yours",
+    step1_title: "Choose a car", step1_desc: "Pick the perfect car from our large fleet.",
+    step2_title: "Fill the form", step2_desc: "Enter your name, phone number, and rental dates.",
+    step3_title: "Get confirmation", step3_desc: "Our operator will contact you and confirm your booking.",
+    book_tag: "Booking", book_title: "Book a Car", book_sub: "Fill out the form and our operator will contact you shortly",
+    bh1: "Free and fast booking", bh2: "No prepayment required", bh3: "Cancel anytime", bh4: "Confirmation in 30 minutes", bh5: "Delivery service available",
+    form_title: "📋 Submit Request",
+    form_name: "Full Name *", form_phone: "Phone Number *", form_car: "Select Car *",
+    form_car_ph: "— Select a car —", form_from: "Start Date *", form_to: "End Date *", form_msg: "Message (optional)",
+    btn_submit: "Submit Booking",
+    contact_tag: "Contact", contact_title: "Get in touch",
+    contact_phone_label: "Phone", contact_addr_label: "Address",
+    contact_addr: "Tashkent, Yakkasaray District, Qushbegi area",
+    contact_hours_label: "Working hours", contact_hours: "Every day: 09:00 – 22:00",
+    cta_tag: "Start today", cta_title: "Book Your Car Today!", cta_sub: "Thousands of customers trust us. Join them.",
+    cta_book_btn: "Book Now",
+    toast_ok: "✅ Your request has been received! We'll contact you soon.",
+    per_day_label: "sum/day"
+  }
+};
+
+let currentLang = 'uz';
+
+function t(key) { return i18n[currentLang][key] || i18n.uz[key] || key; }
+
+function applyLang() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  renderCars();
+}
+
+// ─── RENDER CARS ───
+function renderCars() {
+  const grid = document.getElementById('carsGrid');
+  grid.innerHTML = cars.map((car, i) => `
+    <div class="car-card fade-up stagger-${(i % 6) + 1}">
+      <div class="car-img-wrap">
+        <img src="${car.img}" alt="${car.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80&auto=format&fit=crop'">
+        <span class="car-type-badge">${car.type}</span>
+      </div>
+      <div class="car-body">
+        <div class="car-name">${car.name}</div>
+        <div class="car-model">${car.year} • ${car.type}</div>
+        <div class="car-specs">
+          <span class="spec">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            ${car.seats}
+          </span>
+          <span class="spec">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            ${car.trans}
+          </span>
+          <span class="spec">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V8l9-6 9 6v14H3z"/><path d="M9 22V12h6v10"/></svg>
+            ${car.fuel}
+          </span>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            <div class="price-amount">${car.price}</div>
+            <div class="price-period">${t('per_day_label')}</div>
+          </div>
+          <button class="btn-book-card" onclick="bookCar('${car.name}')">
+            ${t('book_btn')}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Re-observe new elements
+  observeFadeUps();
+}
+
+function bookCar(name) {
+  const sel = document.getElementById('fcar');
+  for (let opt of sel.options) {
+    if (opt.text.startsWith(name)) { sel.value = opt.value; break; }
+  }
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('fcar').focus();
+}
+
+// ─── LANGUAGE ───
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentLang = btn.getAttribute('data-lang');
+    document.documentElement.lang = currentLang;
+    applyLang();
+  });
+});
+
+// ─── MOBILE MENU ───
+document.getElementById('menuToggle').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.toggle('open');
+});
+
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// ─── FORM SUBMIT ───
+function handleSubmit(e) {
+  e.preventDefault();
+  showToast(t('toast_ok'));
+  e.target.reset();
+}
+
+// ─── WA / TG BOOKING ───
+function bookViaWA(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value || '—';
+  const phone = document.getElementById('fphone').value || '—';
+  const car = document.getElementById('fcar').value || '—';
+  const from = document.getElementById('ffrom').value || '—';
+  const to = document.getElementById('fto').value || '—';
+  const msg = `Salom! Bron qilmoqchiman:\n👤 Ism: ${name}\n📞 Tel: ${phone}\n🚗 Avto: ${car}\n📅 Dan: ${from}\n📅 Gacha: ${to}`;
+  window.open(`https://wa.me/998974300700?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function bookViaTG(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value || '—';
+  const phone = document.getElementById('fphone').value || '—';
+  const car = document.getElementById('fcar').value || '—';
+  const from = document.getElementById('ffrom').value || '—';
+  const to = document.getElementById('fto').value || '—';
+  const msg = `Salom! Bron qilmoqchiman:\n👤 Ism: ${name}\n📞 Tel: ${phone}\n🚗 Avto: ${car}\n📅 Dan: ${from}\n📅 Gacha: ${to}`;
+  window.open(`https://t.me/avtoprokatuz?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ─── TOAST ───
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3800);
+}
+
+// ─── SCROLL ANIMATIONS ───
+function observeFadeUps() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+}
+
+// ─── SET MIN DATE ───
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('ffrom').min = today;
+document.getElementById('fto').min = today;
+document.getElementById('ffrom').addEventListener('change', (e) => {
+  document.getElementById('fto').min = e.target.value;
+});
+
+// ─── INIT ───
+renderCars();
+observeFadeUps();
+</script>
+</body>
+</html>
